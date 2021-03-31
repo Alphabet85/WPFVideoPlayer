@@ -25,7 +25,7 @@ namespace WPFVideoPlayer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\jarciaga\\Downloads\\EOIS Videos")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\jarciaga\\Downloads\\")]
         public string VideosSourceLocation {
             get {
                 return ((string)(this["VideosSourceLocation"]));

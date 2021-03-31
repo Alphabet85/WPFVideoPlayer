@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="VideosSourceLocation" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\jarciaga\Downloads\EOIS Videos</Value>
+      <Value Profile="(Default)">C:\Users\jarciaga\Downloads\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -12,6 +12,9 @@ namespace WPFVideoPlayer
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        /// <summary>
+        /// C:\Users\jarciaga\Downloads\EOIS Production Fixture Demo Videos
+        /// </summary>
         #region " Constructor " 
 
         public MainWindowViewModel()
@@ -140,7 +143,7 @@ namespace WPFVideoPlayer
                 }
                 else
                 {
-                    VideoStatusText = "Video Not Loaded\nSelect 'Browse Media' to Start a Video";
+                    VideoStatusText = "Video Not Loaded\nPlease Select a Video";
                 }
 
                 OnPropertyChanged("IsMediaLoaded");
@@ -226,7 +229,10 @@ namespace WPFVideoPlayer
             {
                 foreach (string item in Directory.GetFiles(Properties.Settings.Default.VideosSourceLocation, "*", SearchOption.AllDirectories))
                 {
-                    VideoModelCollection.Add(new VideoModel(item));
+                    if (item.Contains(".mp4") || item.Contains(".mov") || item.Contains(".wmv") || item.Contains(".avi"))
+                    {
+                        VideoModelCollection.Add(new VideoModel(item));
+                    }
                 }
             }
             catch (Exception ex)
