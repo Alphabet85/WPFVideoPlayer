@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFVideoPlayer.Resources.Icons">
+    <!-- ******************************************************************************************************** -->
+    <!-- Icon_Pause -->
+    <Style TargetType="{x:Type Path}" x:Key="Icon_Pause">
+        <Setter Property="Data" Value="M131 0c72,0 131,59 131,131l0 504c0,72 -59,131 -131,131 -72,0 -131,-59 -131,-131l0 -504c0,-72 59,-131 131,-131z
+                M478 0c72,0 131,59 131,131l0 504c0,72 -59,131 -131,131 -72,0 -131,-59 -131,-131l0 -504c0,-72 59,-131 131,-131z"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Fill" Value="DarkGray"/>
+    </Style>
+    <!-- ******************************************************************************************************** -->
+</ResourceDictionary>

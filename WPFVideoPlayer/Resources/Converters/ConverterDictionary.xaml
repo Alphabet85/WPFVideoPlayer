@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:WPFVideoPlayer.Resources.Converters">
+    <converters:BooleanToVisibilityCollapsedConverter x:Key="BooleanToVisibilityCollapsedConverter"/>
+    <converters:BooleanToVisibilityHiddenConverter x:Key="BooleanToVisibilityHiddenConverter"/>
+    <converters:BooleanNotToVisibilityCollapsedConverter x:Key="BooleanNotToVisibilityCollapsedConverter"/>
+    <converters:BooleanNotToVisibilityHiddenConverter x:Key="BooleanNotToVisibilityHiddenConverter"/>
+</ResourceDictionary>
