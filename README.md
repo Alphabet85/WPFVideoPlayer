@@ -1,2 +1,2 @@
 # WPFVideoPlayer
-A video player created in WPF using MVVM techniques.
+A video player created in WPF.
