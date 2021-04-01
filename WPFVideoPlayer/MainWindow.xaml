@@ -11,7 +11,7 @@
     <!-- ******************************************************************************************************** -->
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:VideoPlayerViewModel}">
-            <v:VideoPlayerControlView/>
+            <v:VideoPlayerView/>
         </DataTemplate>
     </Window.Resources>
     <!-- ******************************************************************************************************** -->

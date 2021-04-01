@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:my="clr-namespace:WPFVideoPlayer"
+             xmlns:vm="clr-namespace:WPFVideoPlayer.ViewModels"
+             xmlns:v="clr-namespace:WPFVideoPlayer.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,6 +12,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <my:MainWindowViewModel x:Key="MainWindowViewModel"/>
+            <vm:VideoPlayerViewModel x:Key="VideoPlayerViewModel"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
 
@@ -196,6 +197,28 @@ namespace WPFVideoPlayer.ViewModels
             }
         }
 
+        private bool _isSettingsOpen;
+        public bool IsSettingsOpen
+        {
+            get { return _isSettingsOpen; }
+            set 
+            { 
+                _isSettingsOpen = value;
+                OnPropertyChanged("IsSettingsOpen");
+            }
+        }
+
+        private string _selectedSourceLocation;
+        public string SelectedSourceLocation
+        {
+            get { return _selectedSourceLocation; }
+            set
+            {
+                _selectedSourceLocation = value;
+                OnPropertyChanged("SelectedSourceLocation");
+            }
+        }
+
         #endregion
 
         #region " Methods "
@@ -334,6 +357,38 @@ namespace WPFVideoPlayer.ViewModels
             }
         }
 
+        private void OpenSettings()
+        {
+            IsSettingsOpen = true;
+            SelectedSourceLocation = Properties.Settings.Default.VideosSourceLocation;
+        }
+
+        private void BrowseSourceLocation()
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = Properties.Settings.Default.VideosSourceLocation;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                SelectedSourceLocation = dialog.SelectedPath;
+            }
+        }
+
+        private void SettingsOk()
+        {
+            IsSettingsOpen = false; 
+
+            Properties.Settings.Default.VideosSourceLocation = SelectedSourceLocation;
+            Properties.Settings.Default.Save();
+
+            VideoModelCollection = null;
+            GetVideoCollectionFromSource();
+        }
+
+        private void SettingsCancel()
+        {
+            IsSettingsOpen = false;
+        }
+
         #endregion
 
         #region " Commands "
@@ -377,6 +432,62 @@ namespace WPFVideoPlayer.ViewModels
                 }
 
                 return _stopCommand;
+            }
+        }
+
+        private ICommand _openSettingsCommand;
+        public ICommand OpenSettingsCommand
+        {
+            get
+            {
+                if (_openSettingsCommand == null)
+                {
+                    _openSettingsCommand = new RelayCommand(P => true, p => OpenSettings());
+                }
+
+                return _openSettingsCommand;
+            }
+        }
+
+        private ICommand _browseSourceLocationCommand;
+        public ICommand BrowseSourceLocationCommand
+        {
+            get
+            {
+                if (_browseSourceLocationCommand == null)
+                {
+                    _browseSourceLocationCommand = new RelayCommand(P => true, p => BrowseSourceLocation());
+                }
+
+                return _browseSourceLocationCommand;
+            }
+        }
+
+        private ICommand _settingsOkCommand;
+        public ICommand SettingsOkCommand
+        {
+            get
+            {
+                if (_settingsOkCommand == null)
+                {
+                    _settingsOkCommand = new RelayCommand(P => true, p => SettingsOk());
+                }
+
+                return _settingsOkCommand;
+            }
+        }
+
+        private ICommand _settingsCancelCommand;
+        public ICommand SettingsCancelCommand
+        {
+            get
+            {
+                if (_settingsCancelCommand == null)
+                {
+                    _settingsCancelCommand = new RelayCommand(P => true, p => SettingsCancel());
+                }
+
+                return _settingsCancelCommand;
             }
         }
 

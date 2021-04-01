@@ -23,12 +23,15 @@ namespace WPFVideoPlayer.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\jarciaga\\Downloads\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\jdmca\\Downloads")]
         public string VideosSourceLocation {
             get {
                 return ((string)(this["VideosSourceLocation"]));
+            }
+            set {
+                this["VideosSourceLocation"] = value;
             }
         }
     }
